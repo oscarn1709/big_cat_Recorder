@@ -1,0 +1,65 @@
+﻿<Window x:Class="KinectGUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KinectGUI"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+
+        <!--Initialize the Image space for the kinect Camera-->
+        <Image Name="camera"/>
+        <!-- Initialize the Canvas to be used in the body drawing overlay-->
+        <Canvas Name="canvas"/>
+        <!-- Grid for Buttons-->
+        <Grid>
+            <TextBlock Name="Tester" FontSize="50" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        </Grid>
+        
+        
+        <Grid Height="50" VerticalAlignment="Bottom">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <!--
+            <Button Content="Color" 
+                    Click="Color_Click" 
+                    Height="50"
+                    HorizontalAlignment="Stretch"
+                    Grid.Column="0"/>
+
+            <Button Content="Body"
+                    Click="Body_Click"
+                    Height="50"
+                    HorizontalAlignment="Stretch"
+                    Width="Auto"
+                    Grid.Column="1" />
+            
+            <Button Content="Depth" 
+                    Click="Depth_Click"
+                    Height="50"
+                    HorizontalAlignment="Stretch"
+                    Width="Auto"
+                    Grid.Column="2"/>
+            -->
+
+            <Button Content="Record"
+                    Click="Record_Click"
+                    Height="50"
+                    HorizontalAlignment="Stretch"
+                    Width="Auto"
+                    Grid.Column="0"/>
+            <Button Content="Angle"
+                    Click="Angle_Click"
+                    Height="50"
+                    HorizontalAlignment="Stretch"
+                    Width="Auto"
+                    Grid.Column="1"/>
+
+        </Grid>
+    </Grid>
+</Window>
