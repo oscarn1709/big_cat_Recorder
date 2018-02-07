@@ -52,14 +52,15 @@
                     Height="50"
                     HorizontalAlignment="Stretch"
                     Width="Auto"
-                    Grid.Column="0"/>
+                    Grid.Column="1"/>
+            <!--
             <Button Content="Angle"
                     Click="Angle_Click"
                     Height="50"
                     HorizontalAlignment="Stretch"
                     Width="Auto"
                     Grid.Column="1"/>
-
+                -->
         </Grid>
     </Grid>
 </Window>

@@ -124,6 +124,9 @@ namespace KinectGUI
                               //  Trace.WriteLine(body.IsTracked ? "Tracked == Yes" : "Tracked == No");
                                 if (body.IsTracked)
                                 {
+                                    /*
+                                     * Once the record button is pressed, the record function will run each frame
+                                     */
                                     RecordJSON(body);
                                 }
 
@@ -159,7 +162,7 @@ namespace KinectGUI
 
         private void RecordJSON(Body body)
         {
-            
+            //Height of user is the Y position of head joint
             double Height = body.Joints[JointType.Head].Position.Y;
            
             if (Height > this.maxHeight)
@@ -176,9 +179,10 @@ namespace KinectGUI
                 }
             }
                 
-             if (Math.Abs(stampHeight - Height) >= 0.15)
-            {
+             if (stampHeight - Height >= 0.15)
+             {
                 stampHeight = Height;
+
                 Joint[] myJoints = new Joint[body.Joints.Count];
                 int i = 0;
                 foreach(Joint joint in body.Joints.Values)
@@ -186,14 +190,20 @@ namespace KinectGUI
                     myJoints[i++] = joint;
                 }
 
-                // index = Height - stampHeight
-                double index = Math.Round(this.maxHeight - stampHeight, 5);
+                // index = MaxHeight - stampHeight
+                double index = Math.Round(this.maxHeight - stampHeight, 3);
+
                 JointPackage jp = new JointPackage(myJoints, index);
                 string json = JsonConvert.SerializeObject(jp);
                 Trace.WriteLine(json);
-                sendToServer.Add(jp);
 
-            }
+                sendToServer.Add(jp);
+             }
+
+             if (Height - stampHeight >= -0.1)
+             {
+                Tester.Text = "BREAK";
+             }
             
         }
 
